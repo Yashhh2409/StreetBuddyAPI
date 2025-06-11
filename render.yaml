@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: streetbuddy-api
+    env: php
+    buildCommand: |
+      composer install --no-dev
+      php artisan key:generate
+      php artisan migrate --force
+    startCommand: php artisan serve --host=0.0.0.0 --port=10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: 31.170.162.180
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        value: xrda3main_6ammart
+      - key: DB_USERNAME
+        value: xrda3main_ajit
+      - key: DB_PASSWORD
+        value: Ajit@123#
